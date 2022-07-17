@@ -504,8 +504,18 @@ Df_abstract2 %>% ggplot(aes(x = Period, y=Total_Mets)) +
   geom_boxplot(aes(fill=Period)) + theme_bw()
 
 # Standard 2x2 ANOVA for VO2 Max
+Df_abstract2 %>% anova_test(dv = Sitting_Mins, wid = ID,
+                            within = c(Period))
+
+##0 Total mets
+## Quick visualization
+Df_abstract2 %>% ggplot(aes(x = Period, y=Sitting_Mins)) + 
+  geom_boxplot(aes(fill=Period)) + theme_bw()
+
+# Standard 2x2 ANOVA for VO2 Max
 Df_abstract2 %>% anova_test(dv = Total_Mets, wid = ID,
                             within = c(Period))
+
 
 ## Total sitting
 ## Quick visualization
